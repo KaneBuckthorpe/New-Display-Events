@@ -8,17 +8,17 @@ BOOL hasBeenHomescreen = NO;
 + (id)sharedApplication;
 - (BOOL)isShowingHomescreen;
 - (BOOL)_atHomescreen;
-    @end
+@end
 
 @interface SBUIController : NSObject
 + (id)sharedInstance;
 - (BOOL)isAppSwitcherShowing;
-    @end
+@end
 
 @interface SBLockScreenManager : NSObject
 - (id)sharedInstance;
 - (BOOL)isLockScreenVisible;
-    @end
+@end
 
 % hook SBCoverSheetPresentationManager - (void)_notifyDelegateDidDismiss {
     % orig;
@@ -100,27 +100,27 @@ BOOL hasBeenHomescreen = NO;
 % end
 
 @interface NewDisplayDS : NSObject<LAEventDataSource>
-    @end
+@end
 
 @implementation NewDisplayDS
-    static NSString *appGeneric = @"com.kaneb.appopen";
-    
-    static NSString *homescreen = @"com.kaneb.homescreenopen";
-    
-    static NSString *appSwitcher = @"com.kaneb.appswitcheropen";
-    
-    static NSString *lockscreen = @"com.kaneb.lockscreenopen";
-    
-    static NSString *incomingCall = @"com.kaneb.incomingcall";
-    
-    static NewDisplayDS *newDisplayDS;
-    
+static NSString *appGeneric = @"com.kaneb.appopen";
+
+static NSString *homescreen = @"com.kaneb.homescreenopen";
+
+static NSString *appSwitcher = @"com.kaneb.appswitcheropen";
+
+static NSString *lockscreen = @"com.kaneb.lockscreenopen";
+
+static NSString *incomingCall = @"com.kaneb.incomingcall";
+
+static NewDisplayDS *newDisplayDS;
+
 + (void)load {
     @autoreleasepool {
         newDisplayDS = [[NewDisplayDS alloc] init];
     }
 }
-    
+
 - (id)init {
     if ((self = [super init])) {
         /// registering events
@@ -146,7 +146,7 @@ BOOL hasBeenHomescreen = NO;
     }
     return self;
 }
-    
+
 - (void)dealloc {
     /// unregistered events
     // app
@@ -165,7 +165,7 @@ BOOL hasBeenHomescreen = NO;
     [LASharedActivator unregisterEventDataSourceWithEventName:incomingCall];
     [super dealloc];
 }
-    
+
 - (NSString *)localizedTitleForEventName:(NSString *)eventName {
     
     if ([eventName isEqualToString:appGeneric]) {
@@ -185,11 +185,11 @@ BOOL hasBeenHomescreen = NO;
     }
     return @" ";
 }
-    
+
 - (NSString *)localizedGroupForEventName:(NSString *)eventName {
     return @"New Display Events";
 }
-    
+
 - (NSString *)localizedDescriptionForEventName:(NSString *)eventName {
     
     if ([eventName isEqualToString:appGeneric]) {
@@ -209,5 +209,5 @@ BOOL hasBeenHomescreen = NO;
     }
     return @" ";
 }
-    
-    @end
+
+@end
