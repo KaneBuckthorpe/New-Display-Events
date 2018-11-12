@@ -20,8 +20,8 @@ BOOL hasBeenHomescreen = NO;
 - (BOOL)isLockScreenVisible;
 @end
 
-% hook SBCoverSheetPresentationManager - (void)_notifyDelegateDidDismiss {
-    % orig;
+%hook SBCoverSheetPresentationManager - (void)_notifyDelegateDidDismiss {
+    %orig;
     if ([[objc_getClass("SpringBoard") sharedApplication]
          isShowingHomescreen]) {
         
@@ -38,11 +38,11 @@ BOOL hasBeenHomescreen = NO;
         [LASharedActivator sendEventToListener:appEvent];
     }
 }
-% end
+%end
 
-% hook SpringBoard -
+%hook SpringBoard -
 (void)frontDisplayDidChange : (id)newDisplay {
-    % orig(newDisplay);
+    %orig(newDisplay);
     
     if ([newDisplay isKindOfClass: % c(SBRemoteAlertAdapter)]) {
         LAEvent *incomingCallEvent =
@@ -97,7 +97,7 @@ BOOL hasBeenHomescreen = NO;
         }
     }
 }
-% end
+%end
 
 @interface NewDisplayDS : NSObject<LAEventDataSource>
 @end
