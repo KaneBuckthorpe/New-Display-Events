@@ -20,7 +20,8 @@ BOOL hasBeenHomescreen = NO;
 - (BOOL)isLockScreenVisible;
 @end
 
-%hook SBCoverSheetPresentationManager - (void)_notifyDelegateDidDismiss {
+%hook SBCoverSheetPresentationManager 
+- (void)_notifyDelegateDidDismiss {
     %orig;
     if ([[objc_getClass("SpringBoard") sharedApplication]
          isShowingHomescreen]) {
