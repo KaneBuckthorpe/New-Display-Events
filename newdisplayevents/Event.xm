@@ -41,8 +41,8 @@ BOOL hasBeenHomescreen = NO;
 }
 %end
 
-%hook SpringBoard -
-(void)frontDisplayDidChange : (id)newDisplay {
+%hook SpringBoard 
+-(void)frontDisplayDidChange : (id)newDisplay {
     %orig(newDisplay);
     
     if ([newDisplay isKindOfClass: % c(SBRemoteAlertAdapter)]) {
