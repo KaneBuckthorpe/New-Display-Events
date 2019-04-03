@@ -1,5 +1,5 @@
 # New Display Events
-This is a free libactivator (Activator) addOn that provides new working LAEvents for moving between App, AppSwitcher, Lockscreen, Homescreena and the CallScreen.
+This is a free libactivator (Activator) addOn that provides new working LAEvents for moving between App, AppSwitcher, Lockscreen, Homescreen and the CallScreen.
 
 Available to download on the packix repo [here](https://repo.packix.com/package/com.kanebuckthorpe.newdisplayevents)
 
